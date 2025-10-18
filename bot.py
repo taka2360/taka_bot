@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 
+from keep_alive import keep_alive
+
 # ロギング設定
 logger = logging.getLogger("taka_bot")
 logger.setLevel(logging.INFO)
@@ -84,6 +86,7 @@ def main() -> None:
         return
 
     bot = ExtensibleBot(config)
+    keep_alive()
     bot.run(token)
 
 
